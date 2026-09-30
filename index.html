@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang cá nhân - Lê Đức Mạnh</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="light-mode">
+    <header class="header">
+      <div class="header-container">
+        <h1>Trang cá nhân giới thiệu về Mạnh</h1>
+        <button id="theme-toggle" class="dark_light" aria-label="Toggle theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+      </div>
+    </header>
+
+    <nav class="button_click_tabbar">
+      <button class="tab-btn active" onclick="tabbar('gioi_thieu')">
+        Giới thiệu bản thân
+      </button>
+      <button class="tab-btn" onclick="tabbar('ky_nang')">
+        Danh sách kỹ năng
+      </button>
+      <button class="tab-btn" onclick="tabbar('du_an')">Danh sách dự án</button>
+      <button class="tab-btn" onclick="tabbar('lien_he')">Liên hệ</button>
+    </nav>
+
+    <main class="body_content">
+      <section id="gioi_thieu" class="tabbar active">
+        <h2>Giới thiệu về bản thân mình</h2>
+        <p>
+          Mình tên là <strong>Lê Đức Mạnh</strong>, đến từ Phú Thọ. Hiện nay
+          đang là sinh viên khoá D25 của Học viện Công nghệ Bưu chính Viễn
+          thông, ngành Cử nhân Công nghệ Thông tin. Sở thích của mình là chơi
+          Rubik.
+        </p>
+      </section>
+
+      <section id="ky_nang" class="tabbar">
+        <h2>Danh sách kỹ năng lập trình</h2>
+        <ul class="skills-list">
+          <li><i class="fa-brands fa-github"></i> Sử dụng cơ bản GitHub</li>
+          <li>
+            <i class="fa-brands fa-html5"></i> Hiểu cơ bản về HTML, CSS,
+            JavaScript
+          </li>
+          <li>
+            <i class="fa-solid fa-database"></i> Sử dụng HQTCSDL SQLite để truy
+            vấn dữ liệu
+          </li>
+          <li>
+            <i class="fa-brands fa-python"></i> Phát triển backend với
+            Flask-Python
+          </li>
+          <li>
+            <i class="fa-brands fa-react"></i> Tạo component cơ bản với Vite
+            React-JS
+          </li>
+        </ul>
+      </section>
+
+      <section id="du_an" class="tabbar">
+        <h2>Một vài dự án nhỏ mình đã làm</h2>
+
+        <div class="search-box">
+          <input
+            type="text"
+            id="project-search"
+            placeholder="Tìm kiếm dự án theo từ khóa..."
+            onkeyup="filterProjects()"
+          />
+        </div>
+
+        <ul id="project-list" class="projects-grid">
+          <li class="project-card">
+            <h3>Máy tính cộng trừ nhân chia cơ bản</h3>
+            <ul>
+              <li>Các phép tính cộng trừ nhân chia cơ bản</li>
+              <li>Xử lý một vài lỗi logic nhỏ khi tính toán</li>
+            </ul>
+          </li>
+
+          <li class="project-card">
+            <h3>Trang đặt vé xem phim rạp chiếu phim cơ bản</h3>
+            <ul>
+              <li>Truy xuất danh sách phim hiện có</li>
+              <li>Đặt vé xem phim</li>
+            </ul>
+          </li>
+
+          <li class="project-card">
+            <h3>Backend authentication cơ bản</h3>
+            <ul>
+              <li>Đăng ký và đăng nhập hệ thống</li>
+              <li>Gọi API để xử lý dữ liệu</li>
+              <li>Dùng token để tạo mật khẩu tạm thời</li>
+              <li>Các luồng JWT: Phát, thu hồi, yêu cầu JWT</li>
+              <li>UnitTest để kiểm tra logic code</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="lien_he" class="tabbar">
+        <h2>Liên hệ với mình</h2>
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="fullname">Họ và tên:</label>
+            <input type="text" id="fullname" name="fullname" required />
+            <span class="error-msg" id="name-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+            <span class="error-msg" id="email-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Lời nhắn:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <span class="error-msg" id="message-error"></span>
+          </div>
+
+          <button type="submit" class="submit-btn">Gửi lời nhắn</button>
+          <p id="form-success" class="success-msg"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <ul class="social-links">
+        <li>
+          <a
+            href="https://www.facebook.com/profile.php?id=61563715247611"
+            target="_blank"
+            ><i class="fa-brands fa-facebook"></i> Facebook</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/manhdlptit" target="_blank"
+            ><i class="fa-brands fa-github"></i> GitHub</a
+          >
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-envelope"></i> Email</a>
+        </li>
+      </ul>
+      <p><span id="current-year"></span> - Lê Đức Mạnh viết code</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
